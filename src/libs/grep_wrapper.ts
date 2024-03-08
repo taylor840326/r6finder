@@ -1,9 +1,11 @@
 import { ConsoleSqlOutlined } from '@ant-design/icons';
 import {
-  ChildProcessByStdio,
   ChildProcessWithoutNullStreams,
   spawn,
 } from 'child_process';
+import store from '../store/store';
+import grep from '../store/grep';
+const {setOutput,getOutput} = grep.actions
 
 class GrepWrapper {
   cmd: ChildProcessWithoutNullStreams;
@@ -27,6 +29,9 @@ class GrepWrapper {
 
   getExit(callback: (arg0: string, arg1: number | null) => void) {
     this.getStdout();
+    store.dispatch(
+      setOutput(this.fullOutput)
+    )
     this.cmd.on('exit', (code) => {
       console.info(`exit ${code} message ${this.fullOutput}`)
       callback(this.fullOutput,code)

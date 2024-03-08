@@ -14,6 +14,8 @@ import { autoUpdater } from 'electron-updater';
 import log from 'electron-log';
 import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
+import GrepWrapper from '../libs/grep_wrapper'
+import { ConsoleSqlOutlined } from '@ant-design/icons';
 
 class AppUpdater {
   constructor() {
@@ -39,8 +41,12 @@ ipcMain.on('show-dialog',async (event,arg)=>{
 
 ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
-  console.log(msgTemplate(arg));
-  event.reply('ipc-example', msgTemplate('pong'));
+  const grepWrapper = new GrepWrapper();
+  const handleCallBack = (arg0:string,arg1:number|null)=>{
+    console.log(`${arg0}`)
+    event.reply('ipc-example', msgTemplate(arg0));
+  }
+  grepWrapper.getExit(handleCallBack);
 });
 
 if (process.env.NODE_ENV === 'production') {

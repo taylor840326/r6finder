@@ -5,7 +5,8 @@ import {
 } from 'child_process';
 import store from '../store/store';
 import grep from '../store/grep';
-const {setOutput,getOutput} = grep.actions
+import { randomInt } from 'crypto';
+const {setOutput} = grep.actions
 
 class GrepWrapper {
   cmd: ChildProcessWithoutNullStreams;
@@ -15,28 +16,16 @@ class GrepWrapper {
     this.cmd = spawn('/opt/homebrew/bin/ggrep', ['127.0.0.1', '/etc/hosts']);
   }
 
-  getStdout() {
-    this.cmd.stdout.on('data', (data) => {
-      this.fullOutput+= data.toString()
+  run(callback: (arg0:string) => void) {
+    var result = '';
+    this.cmd.stdout.on('data', (data:string)=> {
+         result += data.toString() + Math.random().toFixed(2);
     });
-  }
+    this.cmd.on('close', (code:number) => {
+        return callback(result);
+    });
+}
 
-  getStderr() {
-    this.cmd.stderr.on('data', (data) => {
-      this.fullOutput+= data.toString()
-    });
-  }
-
-  getExit(callback: (arg0: string, arg1: number | null) => void) {
-    this.getStdout();
-    store.dispatch(
-      setOutput(this.fullOutput)
-    )
-    this.cmd.on('exit', (code) => {
-      console.info(`exit ${code} message ${this.fullOutput}`)
-      callback(this.fullOutput,code)
-    });
-  }
 }
 
 export default GrepWrapper;

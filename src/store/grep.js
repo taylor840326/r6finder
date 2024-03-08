@@ -8,12 +8,8 @@ const grep = createSlice({
   },
   reducers:{
     setOutput:(state,payload) =>{
-      state.output = payload
-      console.log('store set payload',state.output)
+      state.output = payload.payload
     },
-    getOutput:(state) =>{
-      return state.output;
-    }
   }
 })
 

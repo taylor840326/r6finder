@@ -16,6 +16,10 @@ import MenuBuilder from './menu';
 import { resolveHtmlPath } from './util';
 import GrepWrapper from '../libs/grep_wrapper'
 import { ConsoleSqlOutlined } from '@ant-design/icons';
+import store from '../store/store';
+import grep from '../store/grep';
+
+const {setOutput} = grep.actions
 
 class AppUpdater {
   constructor() {
@@ -42,11 +46,10 @@ ipcMain.on('show-dialog',async (event,arg)=>{
 ipcMain.on('ipc-example', async (event, arg) => {
   const msgTemplate = (pingPong: string) => `IPC test: ${pingPong}`;
   const grepWrapper = new GrepWrapper();
-  const handleCallBack = (arg0:string,arg1:number|null)=>{
-    console.log(`${arg0}`)
+  const handleCallBack = (arg0:string)=>{
     event.reply('ipc-example', msgTemplate(arg0));
   }
-  grepWrapper.getExit(handleCallBack);
+  grepWrapper.run(handleCallBack);
 });
 
 if (process.env.NODE_ENV === 'production') {

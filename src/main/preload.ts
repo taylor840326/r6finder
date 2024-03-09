@@ -25,17 +25,6 @@ const electronHandler = {
   },
 };
 
-export type dialogType = 'show-dialog';
-const showDialogHandler = {
-  showDialog2:{
-    showDialog(channel:dialogType,...args:unknown[]){
-      ipcRenderer.send(channel,...args);
-    }
-  }
-}
-export type ElectronDialogHandler = typeof showDialogHandler;
-
-contextBridge.exposeInMainWorld('electronDialog',showDialogHandler)
 contextBridge.exposeInMainWorld('electron', electronHandler);
 
 export type ElectronHandler = typeof electronHandler;

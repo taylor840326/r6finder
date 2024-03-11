@@ -1,0 +1,56 @@
+.modal-body {
+  display        : flex;
+  flex-direction : column;
+  justify-content: space-between;
+}
+
+.modal-body-content {
+  display        : flex;
+  flex-direction : row;
+  justify-content: space-between;
+}
+
+.modal-body-content-left {
+  display        : flex;
+  flex-direction : column;
+  justify-content: space-between;
+}
+
+.trademark {
+  display        : flex;
+  flex-direction : column;
+  justify-content: space-between;
+  font-size      : large;
+}
+
+.engine {
+  display        : flex;
+  flex-direction : column;
+  justify-content: space-between;
+  font-size      : medium;
+}
+
+.components {
+  display        : flex;
+  flex-direction : column;
+  justify-content: space-between;
+  font-size      : small;
+
+}
+
+.modal-footer {
+  margin-top: 10px;
+  display        : flex;
+  flex-direction : row;
+  justify-content: space-between;
+}
+
+.modal-footer-right{
+  display        : flex;
+  flex-direction : row;
+  justify-content: space-between;
+}
+
+.modal-footer-item {
+  margin-right: 5px;
+}

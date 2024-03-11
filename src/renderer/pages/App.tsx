@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { UploadOutlined, UserOutlined, VideoCameraOutlined } from '@ant-design/icons';
 import { Button, Layout, Menu, theme } from 'antd';
+import './App.css'
 import store from '../../store/store';
 import R6About from '../components/R6About';
 import R6Settings from '../components/R6Settings';

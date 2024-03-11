@@ -40,7 +40,7 @@ function R6About({ isOpen, handleOk }) {
 
             {/* 右侧图标 */}
             <div>
-              <Image style={{ width: 80, height: 80 }} src={icon} />
+              <Image preview={false} style={{ width: 80, height: 80 }} src={icon} />
             </div>
           </div>
 

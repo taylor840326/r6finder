@@ -2,6 +2,29 @@
   margin:0;
 }
 
-.sider{
-  color: #1e2225;
+.sider-body{
+  margin-left: 20px;
+  height: 100%;
+  color: #434b51;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+
+.sider-body-top-btn{
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+
+.sider-body-bottom-btn{
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content:space-between;
+}
+
+.btn-item{
+  margin-top: 20px;
 }

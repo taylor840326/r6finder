@@ -11,8 +11,8 @@ function R6SettingButton({ onClick }) {
     alert('click btn');
   };
   return (
-    <Button ghost={true} style={{width:48,height:48}} shape='circle' height='80' width='80' onClick={onClick}>
-      <Image preview={false} style={{ width: 32, height: 32 }} src={setup} />
+    <Button ghost={true} style={{width:40,height:40}} shape='circle' height='80' width='80' onClick={onClick}>
+      <Image preview={false} style={{ width: 24, height: 24 }} src={setup} />
     </Button>
   );
 }
@@ -21,10 +21,10 @@ function R6PatternButton({ onClick }) {
     alert('click btn');
   };
   return (
-    <Button ghost={true} style={{width:48,height:48}} shape='circle' height='80' width='80' onClick={onClick}>
+    <Button ghost={true} style={{width:40,height:40}} shape='circle' height='80' width='80' onClick={onClick}>
       <Image
         preview={false}
-        style={{ width: 32, height: 32 }}
+        style={{ width: 24, height: 24 }}
         src={accelerate}
       />
     </Button>
@@ -36,8 +36,8 @@ function R6Find({ onClick }) {
     alert('click btn');
   };
   return (
-    <Button ghost={true} style={{width:48,height:48}} shape='circle' height='80' width='80' onClick={onClick}>
-      <Image preview={false} style={{ width: 32, height: 32 }} src={document} />
+    <Button ghost={true} style={{width:40,height:40}} shape='circle' height='80' width='80' onClick={onClick}>
+      <Image preview={false} style={{ width: 24, height: 24 }} src={document} />
     </Button>
   );
 }
@@ -47,10 +47,10 @@ function R6AboutButton({ onClick }) {
     alert('click btn');
   };
   return (
-    <Button ghost={true} style={{width:48,height:48}} shape='circle' height='80' width='80' onClick={onClick}>
+    <Button ghost={true} style={{width:40,height:40}} shape='circle' height='80' width='80' onClick={onClick}>
       <Image
         preview={false}
-        style={{ width: 32, height: 32 }}
+        style={{ width: 24, height: 24 }}
         src={creativity}
       />
     </Button>

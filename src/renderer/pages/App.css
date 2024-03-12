@@ -2,10 +2,13 @@
   margin:0;
 }
 
+.sider{
+  color: #1e1f22;
+}
+
 .sider-body{
-  margin-left: 20px;
+  margin-left: 15px;
   height: 100%;
-  color: #434b51;
   display: flex;
   flex-direction: column;
   justify-content:space-between;

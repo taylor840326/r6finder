@@ -4,7 +4,7 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Button, Layout, Menu, theme } from 'antd';
+import { Button, Input, Layout, Menu, theme } from 'antd';
 import './App.css';
 import store from '../../store/store';
 import R6About from '../components/R6About';
@@ -16,6 +16,9 @@ import {
   R6Find,
   R6PatternButton,
 } from '../components/R6NavButton';
+import TextArea from 'antd/es/input/TextArea';
+import BaseSettings from './BaseSettings';
+import ContentFooter from './ContentFooter';
 
 const { Header, Content, Footer, Sider } = Layout;
 
@@ -63,8 +66,9 @@ const App: React.FC = () => {
       <R6Settings isOpen={isSettings} handleOk={handleBtnSettings} />
 
       <Sider
-        width={100}
+        width={72}
         style={{
+          backgroundColor: '#1e1f22',
           overflow: 'auto',
           height: '100vh',
           // position: 'fixed',
@@ -74,41 +78,41 @@ const App: React.FC = () => {
         }}
       >
         <div className="sider-body">
-          <div className='sider-body-top-btn'>
-            <div className='btn-item'>
-            <R6Find onClick={handleBtnClk} />
+          <div className="sider-body-top-btn">
+            <div className="btn-item">
+              <R6Find onClick={handleBtnClk} />
             </div>
-            <div className='btn-item'>
-            <R6PatternButton onClick={handleBtnClr} />
+            <div className="btn-item">
+              <R6PatternButton onClick={handleBtnClr} />
             </div>
           </div>
-          <div className='sider-body-bottom-btn'>
-            <div className='btn-item'>
-            <R6SettingButton onClick={handleBtnSettings} />
+          <div className="sider-body-bottom-btn">
+            <div className="btn-item">
+              <R6SettingButton onClick={handleBtnSettings} />
             </div>
-            <div className='btn-item'>
-            <R6AboutButton onClick={handleBtnAbout} />
+            <div className="btn-item">
+              <R6AboutButton onClick={handleBtnAbout} />
             </div>
           </div>
         </div>
       </Sider>
       <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }} />
-        <Content style={{ margin: '24px 16px 0' }}>
-          <div
-            style={{
-              padding: 24,
-              minHeight: 360,
-              background: colorBgContainer,
-              borderRadius: borderRadiusLG,
-            }}
-          >
-            content {val}
+        {/* 右侧内容 */}
+        <div>
+          {/* 头部控制区 */}
+          <div>
+            <BaseSettings/>
           </div>
-        </Content>
-        <Footer style={{ textAlign: 'center' }}>
-          Ant Design ©{new Date().getFullYear()} Created by Ant UED
-        </Footer>
+          {/* 文本显示区 */}
+          <div>
+            <TextArea showCount={true} autoSize={false} placeholder={val} value={val}/>
+          </div>
+
+          {/* 底部消息区 */}
+          <div>
+            <ContentFooter/>
+          </div>
+        </div>
       </Layout>
     </Layout>
   );

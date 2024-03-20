@@ -1,9 +1,6 @@
 import { Button, Image } from 'antd';
 
-import accelerate from '../../../../assets/accelerate-svgrepo-com.svg';
-import creativity from '../../../../assets/creativity-svgrepo-com.svg';
-import document from '../../../../assets/document-svgrepo-com.svg';
-import setup from '../../../../assets/set-up-svgrepo-com.svg';
+import icon from '../../../../assets/icon.png';
 import { useState } from 'react';
 
 function R6SettingButton({ onClick }) {
@@ -12,7 +9,7 @@ function R6SettingButton({ onClick }) {
   };
   return (
     <Button ghost={true} style={{width:40,height:40}} shape='circle' height='80' width='80' onClick={onClick}>
-      <Image preview={false} style={{ width: 24, height: 24 }} src={setup} />
+      <Image preview={false} style={{ width: 24, height: 24 }} src={icon} />
     </Button>
   );
 }
@@ -25,7 +22,7 @@ function R6PatternButton({ onClick }) {
       <Image
         preview={false}
         style={{ width: 24, height: 24 }}
-        src={accelerate}
+        src={icon}
       />
     </Button>
   );
@@ -37,7 +34,7 @@ function R6Find({ onClick }) {
   };
   return (
     <Button ghost={true} style={{width:40,height:40}} shape='circle' height='80' width='80' onClick={onClick}>
-      <Image preview={false} style={{ width: 24, height: 24 }} src={document} />
+      <Image preview={false} style={{ width: 24, height: 24 }} src={icon} />
     </Button>
   );
 }
@@ -51,7 +48,7 @@ function R6AboutButton({ onClick }) {
       <Image
         preview={false}
         style={{ width: 24, height: 24 }}
-        src={creativity}
+        src={icon}
       />
     </Button>
   );

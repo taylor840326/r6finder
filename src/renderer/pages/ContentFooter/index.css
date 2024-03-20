@@ -1,0 +1,9 @@
+.content-footer{
+  position: fixed;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height:10px;
+  text-align: center;
+  position: relative;
+}
+

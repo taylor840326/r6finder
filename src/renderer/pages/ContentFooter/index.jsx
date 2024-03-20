@@ -1,11 +1,7 @@
-import './index.css'
+import './index.css';
 
-function ContentFooter(){
-  return (
-    <>
-      <p> R6Finder @2024 R6Labs</p>
-    </>
-  )
+function ContentFooter() {
+  return <div className="content-footer">R6Finder @2024 R6Labs</div>;
 }
 
 export default ContentFooter;

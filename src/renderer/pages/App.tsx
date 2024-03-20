@@ -4,19 +4,19 @@ import {
   UserOutlined,
   VideoCameraOutlined,
 } from '@ant-design/icons';
-import { Button, Input, Layout, Menu, theme } from 'antd';
+import { Row, Button, Empty, Input, Layout, Menu, theme } from 'antd';
 import './App.css';
+import { isSet } from 'util/types';
+import TextArea from 'antd/es/input/TextArea';
 import store from '../../store/store';
 import R6About from '../components/R6About';
 import R6Settings from '../components/R6Settings';
-import { isSet } from 'util/types';
 import {
   R6SettingButton,
   R6AboutButton,
   R6Find,
   R6PatternButton,
 } from '../components/R6NavButton';
-import TextArea from 'antd/es/input/TextArea';
 import BaseSettings from './BaseSettings';
 import ContentFooter from './ContentFooter';
 
@@ -33,7 +33,7 @@ const items = [
   label: `nav ${index + 1}`,
 }));
 
-const App: React.FC = () => {
+function App() {
   const {
     token: { colorBgContainer, borderRadiusLG },
   } = theme.useToken();
@@ -45,7 +45,7 @@ const App: React.FC = () => {
   const handleBtnClk = () => {
     window.electron.ipcRenderer.sendMessage('ipc-example', ['ping']);
 
-    const output = store.getState().grep.output;
+    const { output } = store.getState().grep;
     setVal(output);
   };
   const handleBtnClr = () => {
@@ -96,26 +96,32 @@ const App: React.FC = () => {
           </div>
         </div>
       </Sider>
-      <Layout>
-        {/* 右侧内容 */}
-        <div>
-          {/* 头部控制区 */}
-          <div>
-            <BaseSettings/>
-          </div>
-          {/* 文本显示区 */}
-          <div>
-            <TextArea showCount={true} autoSize={false} placeholder={val} value={val}/>
-          </div>
-
-          {/* 底部消息区 */}
-          <div>
-            <ContentFooter/>
-          </div>
+      {/* 右侧内容 */}
+      <div className="content">
+        {/* 头部控制区 */}
+        <div className="fixed top">
+          <BaseSettings />
         </div>
-      </Layout>
+        {/* 文本显示区 */}
+        <div className="fixed mid">
+          {!val ? (
+            <Empty style={{ height: '100%' }} />
+          ) : (
+            <TextArea
+              showCount
+              placeholder={val}
+              value={val}
+              style={{ height: '100%', resize: 'none' }}
+            />
+          )}
+        </div>
+        {/* 底部消息区 */}
+        <div className="fixed bottom">
+          <ContentFooter />
+        </div>
+      </div>
     </Layout>
   );
-};
+}
 
 export default App;

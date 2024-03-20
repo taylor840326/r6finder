@@ -1,3 +1,8 @@
 .setting-body{
-  margin: 5px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.setting.item{
+  margin-top: 5px;
 }

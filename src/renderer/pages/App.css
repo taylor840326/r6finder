@@ -31,3 +31,28 @@
 .btn-item{
   margin-top: 20px;
 }
+
+.content{
+  margin: 5px;
+  width: 100%;
+  display: flex;
+  flex: 1 1 500px;
+  flex-direction: column;
+  justify-content: space-between;
+  max-height: 100pv;
+  position: relative;
+}
+
+.fixed.top{
+  border: 3px;
+}
+
+.fixed.mid{
+  flex: 1;
+  max-height: fit-content;
+}
+
+.fixed.bottom{
+  height: 20px;
+  position: sticky;
+}

@@ -3,9 +3,9 @@ import { UserOutlined } from '@ant-design/icons';
 import { useState } from 'react';
 
 import './index.css';
-const handleChange = (e) => {
-  message.info('Click on left button.');
-  console.log('click left button', e);
+
+const handleChange = (val) => {
+  message.info(`Click on left button. ${val}`);
 };
 
 const options = [];
